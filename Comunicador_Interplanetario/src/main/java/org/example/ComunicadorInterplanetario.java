@@ -34,5 +34,16 @@ public class ComunicadorInterplanetario {
             }
         }
         return true;
-    };
+    }
+
+    //Funcion para contar caracteres especificos en un mensaje
+    public int contarCaracteres(String mensaje, char caracter) {
+        int contador = 0;
+        for (char c : mensaje.toCharArray()) {
+            if (c == caracter) {
+                contador++;
+            }
+        }
+        return contador;
+    }
 }
