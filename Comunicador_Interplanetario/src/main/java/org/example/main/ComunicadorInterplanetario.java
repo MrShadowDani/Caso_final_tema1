@@ -6,7 +6,7 @@ import java.util.Map;
 public class ComunicadorInterplanetario {
 
     //Estructura de datos para almcacenar los mensajes
-    private Map<String, String> mensajes;
+    private final Map<String, String> mensajes;
     public ComunicadorInterplanetario() {
         mensajes = new HashMap<>();
     }

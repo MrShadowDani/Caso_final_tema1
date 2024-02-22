@@ -11,7 +11,7 @@ public class ComunicadorInterplanetarioTest {
         //Prueba con un palindromo
         Assertions.assertTrue(comunicador.esPalindromo("Anita lava la tina"));
         //Prueba con un no palindromo
-        Assertions.assertFalse(!comunicador.esPalindromo("Hola mundo"));
+        Assertions.assertFalse(comunicador.esPalindromo("Hola mundo"));
     }
 
     @Test
