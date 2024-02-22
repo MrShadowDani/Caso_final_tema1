@@ -1,8 +1,8 @@
-package org.example.mai;
+package org.example.main;
 
 public class CronometroInterplanetario {
     //Ciclo diario del nuevo planeta en segundos
-    private static final long CICLO_DIARIO_SEGUNDOS = 86400; // 24 horas * 60 minutos * 60 segundos
+    private static final long CICLO_DIARIO_SEGUNDOS = 86400;
 
     //Ciclo anual del nuevo planeta en segundos
     private static final long CICLO_ANUAL_SEGUNDOS = 31536000; // 365 días * 24 horas * 60 minutos * 60 segundos
@@ -28,5 +28,10 @@ public class CronometroInterplanetario {
         return String.format("%02d:%02d:%02d", horas, minutos, segundos);
     }
 
-    //
+    //Funcion para identificar los limites de representacion de datos
+    public static boolean verificarLimites(double tiempo) {
+        //Implementar logica para verificar si el tiempo esta dentro de los limites de representacion
+        //Por ejemplo, si el tiempo excede cierto valor maximo o minimo
+        return tiempo >= 0 && tiempo <= CICLO_ANUAL_SEGUNDOS;
+    }
 }
