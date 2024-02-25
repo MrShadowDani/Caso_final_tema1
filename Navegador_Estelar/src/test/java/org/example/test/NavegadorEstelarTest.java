@@ -17,12 +17,10 @@ public class NavegadorEstelarTest {
     @Test
     public void testSimularTerrenosObstaculos() {
         System.out.println("Test de simulación de terrenos y obstáculos...");
-        double[][] terreno = {
-                {0.5, 0.3, 0.8},
-                {0.1, 0.2, 0.6},
-                {0.9, 0.7, 0.4}
-        };
-        NavegadorEstelar.simularTerrenosObstaculos(terreno);
+        int filas = 3;
+        int columnas = 3;
+        double[][] terreno = new double[filas][columnas];
+        NavegadorEstelar.simularTerrenosObstaculos(filas, columnas, terreno);
         // Como este método solo imprime mensajes, no podemos verificar nada en particular.
         // Solo verificamos que no haya excepciones al ejecutar el método.
     }

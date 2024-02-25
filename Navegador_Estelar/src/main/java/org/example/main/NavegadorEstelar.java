@@ -4,11 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class NavegadorEstelar {
-    // Tamaño predeterminado para la simulación del terreno
-    private static final int DEFAULT_FILAS = 5;
-    private static final int DEFAULT_COLUMNAS = 5;
-
-    //Funcion para la planificacion de rutas y construcciones en la superficie del planeta
+    //Funcion para la planificacion de rutas y contrucciones en la superficie del planeta
     public static void planificarRutasConstrucciones() {
         System.out.println("Planificando rutas y construcciones en la superficie del planeta...");
         // Implementar la lógica para la planificación de rutas y construcciones
@@ -19,9 +15,8 @@ public class NavegadorEstelar {
     }
 
     // Función para la simulación de terrenos y obstáculos mediante matrices
-    public static double[][] simularTerrenosObstaculos(int filas, int columnas) {
+    public static void simularTerrenosObstaculos(int filas, int columnas, double[][] terreno) {
         System.out.println("Simulación de terrenos y obstáculos mediante matrices...");
-        double[][] terreno = generarTerreno(filas, columnas);
         // Imprimir matriz de terreno
         System.out.println("Terreno inicial:");
         for (double[] fila : terreno) {
@@ -45,7 +40,6 @@ public class NavegadorEstelar {
         }
         // Mensaje de finalización de la simulación
         System.out.println("Simulación de terrenos y obstáculos completada.");
-        return terreno;
     }
 
     // Función para la optimización de rutas para conservar recursos y tiempo
@@ -73,14 +67,13 @@ public class NavegadorEstelar {
     // Función principal
     public static void main(String[] args) {
         // Ejemplo de uso
-        int filas = 7;
-        int columnas = 7;
+        double[][] terreno = generarTerreno(5, 5); // Generamos un terreno aleatorio de 5x5
 
         // Planificación de rutas y construcciones
         planificarRutasConstrucciones();
 
         // Simulación de terrenos y obstáculos
-        double[][] terreno = simularTerrenosObstaculos(filas, columnas);
+        simularTerrenosObstaculos(terreno.length, terreno[0].length, terreno);
 
         // Optimización de rutas
         optimizarRutas();
