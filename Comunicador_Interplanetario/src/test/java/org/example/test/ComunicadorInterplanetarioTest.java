@@ -20,7 +20,7 @@ public class ComunicadorInterplanetarioTest {
     public void testContarCaracteresEspecificos() {
         ComunicadorInterplanetario comunicador = new ComunicadorInterplanetario();
         // Prueba con un mensaje y un carácter específico
-        Assertions.assertEquals(3, comunicador.contarCaracteres("Hola mundo", 'o'));
+        Assertions.assertEquals(2, comunicador.contarCaracteres("Hola mundo", 'o'));
         // Prueba con un carácter que no está en el mensaje
         Assertions.assertEquals(0, comunicador.contarCaracteres("Hola mundo", 'x'));
     }
@@ -29,12 +29,12 @@ public class ComunicadorInterplanetarioTest {
     public void testEnviarYRecibirMensaje() {
         ComunicadorInterplanetario comunicador = new ComunicadorInterplanetario();
         // Enviar un mensaje a un destino y recibirlo
-        comunicador.enviarMensaje("¡Hola desde Marte!", "Marte");
+        comunicador.enviarMensaje("¡Hola desde Tierra!", "Marte");
         String mensajeRecibido = comunicador.recibirMensaje("Marte");
-        Assertions.assertEquals("¡Hola desde Marte!", mensajeRecibido, "El mensaje recibido no coincide con el enviado a Marte");
+        Assertions.assertEquals("¡Hola desde Tierra!", mensajeRecibido, "El mensaje recibido no coincide con el enviado a Marte");
         // Intentar recibir un mensaje de un origen sin mensajes pendientes
-        mensajeRecibido = comunicador.recibirMensaje("Tierra");
-        Assertions.assertEquals("No hay mensajes pendientes de Tierra", mensajeRecibido, "El mensaje de Tierra no coincide con el esperado");
+        mensajeRecibido = comunicador.recibirMensaje("Marte");
+        Assertions.assertEquals("No hay mensajes pendientes de Marte", mensajeRecibido, "El mensaje de Tierra no coincide con el esperado");
     }
 }
 

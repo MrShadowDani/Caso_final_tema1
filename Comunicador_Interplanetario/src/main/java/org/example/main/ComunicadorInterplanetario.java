@@ -20,29 +20,27 @@ public class ComunicadorInterplanetario {
     public void enviarMensaje(String mensaje, String destino) {
         int retardo = (int) (Math.random() * 10) + 1; // Retardo aleatorio entre 1 y 10 segundos
         retardoPorDestino.put(destino, retardo);
-        new Thread(() -> {
-            try {
-                Thread.sleep((long) retardo * 1000); // Convertir 1000 a long
-                mensajes.put(destino, mensaje);
-            } catch (InterruptedException e) {
-                logger.error("Error al dormir el hilo", e);
-                Thread.currentThread().interrupt(); // Restaura la bandera de interrupción
-            }
-        }).start();
+        try {
+            Thread.sleep((long) retardo * 1000); // Convertir 1000 a long
+            mensajes.put(destino, mensaje);
+        } catch (InterruptedException e) {
+            logger.error("Error al dormir el hilo", e);
+            Thread.currentThread().interrupt(); // Restaura la bandera de interrupción
+        }
     }
 
-    public String recibirMensaje(String origen) {
-        if (!mensajes.containsKey(origen)) {
-            return "No hay mensajes pendientes de " + origen;
+    public String recibirMensaje(String destino) {
+        if (!mensajes.containsKey(destino)) {
+            return "No hay mensajes pendientes de " + destino;
         }
-        int retardo = retardoPorDestino.getOrDefault(origen, 0);
+        int retardo = retardoPorDestino.getOrDefault(destino, 0);
         try {
             Thread.sleep((long) retardo * 1000); // Convertir 1000 a long
         } catch (InterruptedException e) {
             logger.error("Error al dormir el hilo", e);
             Thread.currentThread().interrupt(); // Restaura la bandera de interrupción
         }
-        return mensajes.remove(origen);
+        return mensajes.remove(destino);
     }
 
     public boolean esPalindromo(String mensaje) {

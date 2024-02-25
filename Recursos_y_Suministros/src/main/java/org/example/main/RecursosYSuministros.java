@@ -1,7 +1,5 @@
 package org.example.main;
 
-import java.util.Arrays;
-
 public class RecursosYSuministros {
 
     // Función para calcular el consumo de recursos vitales
