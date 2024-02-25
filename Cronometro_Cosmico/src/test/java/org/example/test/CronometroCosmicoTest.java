@@ -1,5 +1,6 @@
 package org.example.test;
 
+
 import org.example.main.CronometroCosmico;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -24,5 +25,11 @@ public class CronometroCosmicoTest {
         // Prueba de límites de representación de datos
         Assertions.assertTrue(CronometroCosmico.verificarLimites(200000));
         Assertions.assertFalse(CronometroCosmico.verificarLimites(400000000));
+    }
+
+    @Test
+    public void testCalcularEdadEnNuevoPlaneta() {
+        // Prueba para calcular la edad en el nuevo planeta
+        Assertions.assertEquals(20.52, CronometroCosmico.calcularEdadEnNuevoPlaneta(41));
     }
 }
