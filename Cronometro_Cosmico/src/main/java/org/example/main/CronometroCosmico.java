@@ -1,20 +1,20 @@
 package org.example.main;
 
-public class CronometroInterplanetario {
+public class CronometroCosmico {
     //Ciclo diario del nuevo planeta en segundos
-    private static final long CICLO_DIARIO_SEGUNDOS = 86400;
+    private static final double CICLO_DIARIO_SEGUNDOS = 86400.0;
 
     //Ciclo anual del nuevo planeta en segundos
-    private static final long CICLO_ANUAL_SEGUNDOS = 31536000; // 365 días * 24 horas * 60 minutos * 60 segundos
+    private static final double CICLO_ANUAL_SEGUNDOS = 31536000.0; // 365 días * 24 horas * 60 minutos * 60 segundos
 
     //Funcion para convertir tiempo entre la Tierra y el nuevo planeta
     public static double convertirTiempo(double tiempo, boolean esTierraANuevoPlaneta) {
         if (esTierraANuevoPlaneta) {
             //Conversion de tiempo de la Tierra al nuevo planeta
-            return tiempo * CICLO_ANUAL_SEGUNDOS / CICLO_DIARIO_SEGUNDOS;
+            return tiempo * (CICLO_ANUAL_SEGUNDOS / CICLO_DIARIO_SEGUNDOS);
         } else {
             //Conversion de tiempo del nuevo planeta a la Tierra
-            return tiempo * CICLO_DIARIO_SEGUNDOS / CICLO_ANUAL_SEGUNDOS;
+            return tiempo * (CICLO_DIARIO_SEGUNDOS / CICLO_ANUAL_SEGUNDOS);
         }
     }
 
